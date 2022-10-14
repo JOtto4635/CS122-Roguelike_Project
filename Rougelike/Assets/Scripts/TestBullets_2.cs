@@ -8,6 +8,7 @@ public class TestBullets_2 : MonoBehaviour
     public float minDamage;
     public float maxDamage;
     public float projectileForce;
+    public float maxLifetime;
 
     private Vector2 direction;
 
@@ -20,7 +21,7 @@ public class TestBullets_2 : MonoBehaviour
             GameObject bullet = Instantiate(projectile, transform.position, Quaternion.identity);
             Vector2 direction = Vector2.up;
             bullet.GetComponent<Rigidbody2D>().velocity = direction * projectileForce;
-
+            Destroy(bullet, maxLifetime);
         }
     }
 }
