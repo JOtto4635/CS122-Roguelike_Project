@@ -12,8 +12,6 @@ public class TestBullets_2 : MonoBehaviour
 
     private Vector2 direction;
 
-
-
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) // 0 for left click 1 for right click
