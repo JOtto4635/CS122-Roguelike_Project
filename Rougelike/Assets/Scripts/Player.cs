@@ -7,10 +7,12 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    private GameObject player1 = default;
+
     public int maxHealth = 200;
     public int currentHealth;
 
-    public HealthBar healthbar;
+    public HealthBar playerhealthbar;
 
 
 
@@ -18,7 +20,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        healthbar.SetMaxHealth(maxHealth);
+        playerhealthbar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -34,17 +36,18 @@ public class Player : MonoBehaviour
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        healthbar.SetHealth(currentHealth);
+        playerhealthbar.SetHealth(currentHealth);
     }
 
-    /*
+ 
+/*
     void CheckHealth(int currentHealth)
     {
         if(currentHealth <= 0)
         {
-          //  Destroy(GameObject);
+            Destroy(this.GameObject);
         }
     }
+*/
 
-    */
 }
