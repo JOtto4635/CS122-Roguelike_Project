@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1117636690899806347}
   - component: {fileID: 1117636690899806340}
   m_Layer: 0
-  m_Name: ateroid
+  m_Name: asteroid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1117636690899806336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 114, y: -150, z: 0}
+  m_LocalPosition: {x: 112.9, y: -150.6, z: 0}
   m_LocalScale: {x: 3.2618, y: 3.1242, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -101,9 +101,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.03412739}
   serializedVersion: 2
-  m_Radius: 3.28
+  m_Radius: 4.685463
 --- !u!50 &1117636690899806347
 Rigidbody2D:
   serializedVersion: 4
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 30
   asteroidHealth: 50
-  asteroidHealthBar: {fileID: 0}
+  asteroidHealthBar: {fileID: 3531282965861588541}
 --- !u!1 &2983663916754123114
 GameObject:
   m_ObjectHideFlags: 0

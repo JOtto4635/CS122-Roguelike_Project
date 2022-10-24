@@ -9,7 +9,7 @@ public class astroid : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 screenBounds;
 
-    public float asteroidHealth = 50.0f;
+    public int asteroidHealth = 50;
     public HealthBar asteroidHealthBar;
 
 
@@ -31,18 +31,20 @@ public class astroid : MonoBehaviour
         
     }
 
-    void OnCollisionEnter(Collision col)
+    void OnCollisionEnter2D(Collision2D coll)
     {
-        if(col.gameObject.name == "Bullet 4")
+        if(coll.gameObject.name == "Bullet 4(Clone)")
         {
+            Destroy(coll.gameObject);
             TakeDamage(10);
         }
     }
 
-    void TakeDamage(float damage)
+    void TakeDamage(int damage)
     {
         asteroidHealth = asteroidHealth - damage;
-        if(asteroidHealth <= 0)
+        asteroidHealthBar.SetHealth(asteroidHealth);
+        if (asteroidHealth <= 0)
         {
             Destroy(this.gameObject);
         }

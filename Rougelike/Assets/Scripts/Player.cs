@@ -26,11 +26,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(20);
-            //CheckHealth(currentHealth);
-        }
+
     }
 
     void TakeDamage(int damage)
@@ -39,15 +35,21 @@ public class Player : MonoBehaviour
         playerhealthbar.SetHealth(currentHealth);
     }
 
- 
-/*
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if(coll.gameObject.name == "asteroid(Clone)")
+        {
+            Destroy(coll.gameObject);
+            TakeDamage(50);
+            CheckHealth(currentHealth);
+        }
+    }
+
     void CheckHealth(int currentHealth)
     {
         if(currentHealth <= 0)
         {
-            Destroy(this.GameObject);
+            Destroy(this.gameObject);
         }
     }
-*/
-
 }
