@@ -9,7 +9,7 @@ public class astroid : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 screenBounds;
 
-    public int asteroidHealth = 50;
+    public float asteroidHealth = 50;
     public HealthBar asteroidHealthBar;
 
 
@@ -40,7 +40,7 @@ public class astroid : MonoBehaviour
         }
     }
 
-    void TakeDamage(int damage)
+    void TakeDamage(float damage)
     {
         asteroidHealth = asteroidHealth - damage;
         asteroidHealthBar.SetHealth(asteroidHealth);
