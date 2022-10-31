@@ -33,7 +33,5 @@ public class TestBullets_2 : MonoBehaviour
                 Destroy(bullet, maxLifetime);  // Destroy the bullets after a certain time on screen
             }                                                         
         }
-
-        
     }
 }
