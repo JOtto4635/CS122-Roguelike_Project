@@ -46,7 +46,10 @@ public class astroid : MonoBehaviour
         asteroidHealthBar.SetHealth(asteroidHealth);
         if (asteroidHealth <= 0)
         {
+            var exp = GetComponent<Explosion>();
+            exp.Play();
             Destroy(this.gameObject);
+
         }
     }
 }
