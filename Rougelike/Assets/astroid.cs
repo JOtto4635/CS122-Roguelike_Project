@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +12,8 @@ public class astroid : MonoBehaviour
 
     public float asteroidHealth = 50;
     public HealthBar asteroidHealthBar;
-
+    public GameObject explosionPrefab;
+    //public Canvas canvas;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +28,7 @@ public class astroid : MonoBehaviour
     {
         if(transform.position.y < screenBounds.y * 10)
         {
-            Destroy(this.gameObject);
+            Destroy(this.gameObject); 
         }
         
     }
@@ -46,8 +48,12 @@ public class astroid : MonoBehaviour
         asteroidHealthBar.SetHealth(asteroidHealth);
         if (asteroidHealth <= 0)
         {
-            var exp = GetComponent<Explosion>();
-            exp.Play();
+            Vector3 deathPosition = this.gameObject.transform.position;
+            GameObject explosion = Instantiate(explosionPrefab) as GameObject;
+            explosion.transform.position = deathPosition;
+
+            explosion.transform.SetParent(GameObject.FindGameObjectWithTag("ui").transform, true);
+
             Destroy(this.gameObject);
 
         }
