@@ -35,10 +35,28 @@ public class astroid : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        if(coll.gameObject.name == "Bullet 4(Clone)")
+        if (coll.gameObject.name == "Bullet 1(Clone)")
         {
             Destroy(coll.gameObject);
             TakeDamage(10);
+        }
+
+        if (coll.gameObject.name == "Bullet 2(Clone)")
+        {
+            Destroy(coll.gameObject);
+            TakeDamage(20);
+        }
+
+        if (coll.gameObject.name == "Bullet 3(Clone)")
+        {
+            Destroy(coll.gameObject);
+            TakeDamage(30);
+        }
+
+        if (coll.gameObject.name == "Bullet 4(Clone)")
+        {
+            Destroy(coll.gameObject);
+            TakeDamage(40);
         }
     }
 

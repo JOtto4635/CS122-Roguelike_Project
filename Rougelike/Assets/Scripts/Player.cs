@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,27 @@ public class Player : MonoBehaviour
 
     public HealthBar playerhealthbar;
     public HealthBar playershieldbar;
+
+    public GameObject defaultBullet;
+    public GameObject bullet2Prefab;
+    public GameObject bullet3Prefab;
+    public GameObject bullet4Prefab;
+
+    private float powerUpTime = 0;
+
+    public SpriteRenderer spriteRenderer;
+    public Sprite defaultShipSprite;
+    public Sprite shipPowerUp1;
+    public Sprite shipPowerUp2;
+    public Sprite shipPowerUp3;
+
+    public Animator animator;
+    public RuntimeAnimatorController defaultShipController;
+    public RuntimeAnimatorController powerUpController1;
+    public RuntimeAnimatorController powerUpController2;
+    public RuntimeAnimatorController powerUpController3;
+
+    
 
 
 
@@ -52,6 +74,16 @@ public class Player : MonoBehaviour
                 }
             }
         }
+
+        if (powerUpTime > 0)
+        {
+            powerUpTime -= Time.deltaTime;
+        }
+        if (powerUpTime <= 0)
+        {
+            setBulletPowerUp(defaultBullet);
+            setShipPowerUp(defaultShipSprite, defaultShipController, 1, 5);
+        }
     }
 
     void TakeDamage(float damage)
@@ -83,6 +115,26 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void setBulletPowerUp(GameObject prefab)
+    {
+        GameObject player = this.gameObject;
+        TestBullets_2 playerScript = player.GetComponent<TestBullets_2>();
+        playerScript.projectile = prefab;
+
+    }
+
+    private void setShipPowerUp(Sprite newSprite, RuntimeAnimatorController newController, float newFireRate, float newMaxLife)
+    {
+        GameObject player = this.gameObject;
+        TestBullets_2 playerScript = player.GetComponent<TestBullets_2>();
+
+        animator.runtimeAnimatorController = newController;
+        spriteRenderer.sprite = newSprite;
+
+        playerScript.fireRate = newFireRate;
+        playerScript.maxLifetime = newMaxLife;
+    }
+
     void OnCollisionEnter2D(Collision2D coll)
     {
         if(coll.gameObject.name == "asteroid(Clone)")
@@ -91,6 +143,49 @@ public class Player : MonoBehaviour
             TakeDamage(50);
             CheckHealth(currentHealth);
         }
+
+        if (coll.gameObject.name == "bulletPower1")
+        {
+            powerUpTime = 10f;
+            setBulletPowerUp(bullet2Prefab);
+            Destroy(coll.gameObject);
+        }
+
+        if (coll.gameObject.name == "bulletPower2")
+        {
+            powerUpTime = 10f;
+            setBulletPowerUp(bullet3Prefab);
+            Destroy(coll.gameObject);
+        }
+
+        if (coll.gameObject.name == "bulletPower3")
+        {
+            powerUpTime = 10f;
+            setBulletPowerUp(bullet4Prefab);
+            Destroy(coll.gameObject);
+        }
+
+        if (coll.gameObject.name == "shipPower1")
+        {
+            powerUpTime = 10f;
+            setShipPowerUp(shipPowerUp1, powerUpController1, 3, 5);
+            Destroy(coll.gameObject);
+        }
+
+        if (coll.gameObject.name == "shipPower2")
+        {
+            powerUpTime = 10f;
+            setShipPowerUp(shipPowerUp2, powerUpController2, 6, 3);
+            Destroy(coll.gameObject);
+        }
+
+        if (coll.gameObject.name == "shipPower3")
+        {
+            powerUpTime = 10f;
+            setShipPowerUp(shipPowerUp3, powerUpController3, 10, 2);
+            Destroy(coll.gameObject);
+        }
+
     }
 
     void CheckHealth(float currentHealth)
