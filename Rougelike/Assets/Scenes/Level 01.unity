@@ -450,13 +450,13 @@ MonoBehaviour:
   - name: Music
     clip: {fileID: 8300000, guid: 838db545596d4c245967bca65aec9b14, type: 3}
     volume: 1
-    pitch: 0
+    pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: LaserCannon
     clip: {fileID: 8300000, guid: 996b8c95dccdf544bb111aabf0758df4, type: 3}
     volume: 1
-    pitch: 0
+    pitch: 2
     loop: 0
     source: {fileID: 0}
 --- !u!4 &758650885
