@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1117636690899806343}
   - component: {fileID: 1117636690899806347}
   - component: {fileID: 1117636690899806340}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: asteroid
   m_TagString: Enemy
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -141,6 +141,11 @@ MonoBehaviour:
   asteroidHealth: 50
   asteroidHealthBar: {fileID: 3531282965861588541}
   explosionPrefab: {fileID: 8728627395842048607, guid: 62e5aedac06166742a9e7b9f17eba263, type: 3}
+  bulletPower1: {fileID: 5288200768774758714, guid: d1d0a8505cae7714e88a05e9c4d73ee6, type: 3}
+  bulletPower2: {fileID: 5288200768774758714, guid: cb82d96113c58a5488089a3c618eb51a, type: 3}
+  shipPower1: {fileID: 5288200768774758714, guid: 8b99bb2e65ae4f04ca0935ee75130cdf, type: 3}
+  shipPower2: {fileID: 5288200768774758714, guid: de3ae3ff87c1f6b449b65cdefe75e854, type: 3}
+  shipPower3: {fileID: 5288200768774758714, guid: b916c36bd4bb78a4cbec248081839cce, type: 3}
 --- !u!1 &2983663916754123114
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +234,7 @@ GameObject:
   - component: {fileID: 1946549415059536184}
   - component: {fileID: 8373950128481656341}
   - component: {fileID: 2166610735262047733}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Health Bar Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

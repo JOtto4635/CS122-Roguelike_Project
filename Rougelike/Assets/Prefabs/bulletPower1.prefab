@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5587009579282637444}
   - component: {fileID: -7850319639690663905}
   - component: {fileID: 4632922444519163095}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bulletPower1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

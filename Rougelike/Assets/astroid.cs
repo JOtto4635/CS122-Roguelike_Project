@@ -15,6 +15,15 @@ public class astroid : MonoBehaviour
     public GameObject explosionPrefab;
     //public Canvas canvas;
 
+
+    // Power Up Prefabs
+    public GameObject bulletPower1;
+    public GameObject bulletPower2;
+    public GameObject shipPower1;
+    public GameObject shipPower2;
+    public GameObject shipPower3;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +39,8 @@ public class astroid : MonoBehaviour
         {
             Destroy(this.gameObject); 
         }
+
+
         
     }
 
@@ -69,11 +80,52 @@ public class astroid : MonoBehaviour
             Vector3 deathPosition = this.gameObject.transform.position;
             GameObject explosion = Instantiate(explosionPrefab) as GameObject;
             explosion.transform.position = deathPosition;
+            CheckItemDrops(deathPosition);
 
-            explosion.transform.SetParent(GameObject.FindGameObjectWithTag("ui").transform, true);
+         //   explosion.transform.SetParent(GameObject.FindGameObjectWithTag("ui").transform, true);
 
             Destroy(this.gameObject);
 
+        }
+    }
+
+    void CheckItemDrops(Vector3 deathPosition)
+    {
+        int DropCheck = Random.Range(0, 100);
+
+        if(DropCheck >= 90)
+        {
+            int ItemRoll = Random.Range(1, 6);
+
+            if (ItemRoll == 1)
+            {
+                GameObject PowerUpDrop = Instantiate(bulletPower1) as GameObject;
+                PowerUpDrop.transform.position = deathPosition;
+            }
+
+            if (ItemRoll == 2)
+            {
+                GameObject PowerUpDrop = Instantiate(bulletPower2) as GameObject;
+                PowerUpDrop.transform.position = deathPosition;
+            }
+
+            if (ItemRoll == 3)
+            {
+                GameObject PowerUpDrop = Instantiate(shipPower1) as GameObject;
+                PowerUpDrop.transform.position = deathPosition;
+            }
+
+            if (ItemRoll == 4)
+            {
+                GameObject PowerUpDrop = Instantiate(shipPower2) as GameObject;
+                PowerUpDrop.transform.position = deathPosition;
+            }
+
+            if (ItemRoll == 5)
+            {
+                GameObject PowerUpDrop = Instantiate(shipPower3) as GameObject;
+                PowerUpDrop.transform.position = deathPosition;
+            }
         }
     }
 }

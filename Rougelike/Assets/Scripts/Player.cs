@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     public GameObject bullet2Prefab;
     public GameObject bullet3Prefab;
     public GameObject bullet4Prefab;
+    public GameObject explosionPrefab;
 
     private float powerUpTime = 0;
 
@@ -144,42 +145,42 @@ public class Player : MonoBehaviour
             CheckHealth(currentHealth);
         }
 
-        if (coll.gameObject.name == "bulletPower1")
+        if (coll.gameObject.name == "bulletPower1(Clone)")
         {
             powerUpTime = 10f;
             setBulletPowerUp(bullet2Prefab);
             Destroy(coll.gameObject);
         }
 
-        if (coll.gameObject.name == "bulletPower2")
+        if (coll.gameObject.name == "bulletPower2(Clone)")
         {
             powerUpTime = 10f;
             setBulletPowerUp(bullet3Prefab);
             Destroy(coll.gameObject);
         }
 
-        if (coll.gameObject.name == "bulletPower3")
+        if (coll.gameObject.name == "bulletPower3(Clone)")
         {
             powerUpTime = 10f;
             setBulletPowerUp(bullet4Prefab);
             Destroy(coll.gameObject);
         }
 
-        if (coll.gameObject.name == "shipPower1")
+        if (coll.gameObject.name == "shipPower1(Clone)")
         {
             powerUpTime = 10f;
             setShipPowerUp(shipPowerUp1, powerUpController1, 3, 5);
             Destroy(coll.gameObject);
         }
 
-        if (coll.gameObject.name == "shipPower2")
+        if (coll.gameObject.name == "shipPower2(Clone)")
         {
             powerUpTime = 10f;
             setShipPowerUp(shipPowerUp2, powerUpController2, 6, 3);
             Destroy(coll.gameObject);
         }
 
-        if (coll.gameObject.name == "shipPower3")
+        if (coll.gameObject.name == "shipPower3(Clone)")
         {
             powerUpTime = 10f;
             setShipPowerUp(shipPowerUp3, powerUpController3, 10, 2);
@@ -192,6 +193,13 @@ public class Player : MonoBehaviour
     {
         if(currentHealth <= 0)
         {
+
+            Vector3 deathPosition = this.gameObject.transform.position;
+            GameObject explosion = Instantiate(explosionPrefab) as GameObject;
+            explosion.transform.position = deathPosition;
+
+          //  explosion.transform.SetParent(GameObject.FindGameObjectWithTag("ui").transform, true);
+
             Destroy(this.gameObject);
         }
     }
