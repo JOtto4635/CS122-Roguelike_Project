@@ -18,10 +18,10 @@ public class AIFollower : MonoBehaviour
     void Update()
     { 
         transform.position += (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized * MoveSpeed * Time.deltaTime;
-        //transform.rotation.z = (Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
         //Get the angle between the points
         float angle = AngleBetweenTwoPoints(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+
 
         transform.rotation =  Quaternion.Euler(new Vector3(0f , 0f, (angle + 90)));
 

@@ -34,7 +34,6 @@ public class AIBehavior : MonoBehaviour
         {
             GameObject bullet = Instantiate(projectile, GunBarrel.position, GunBarrel.rotation);
             bullet.GetComponent<Rigidbody2D>().velocity = transform.up * projectileForce;
-            FindObjectOfType<AudioManager>().Play("LaserCannon"); // This line works here but it also works just above this if statement, not sure which is better
             shotCheck = Random.Range(2,10);
             Destroy(bullet, maxLifetime);  // Destroy the bullets after a certain time on screen
         }
