@@ -82,8 +82,6 @@ public class astroid : MonoBehaviour
             explosion.transform.position = deathPosition;
             CheckItemDrops(deathPosition);
 
-         //   explosion.transform.SetParent(GameObject.FindGameObjectWithTag("ui").transform, true);
-
             Destroy(this.gameObject);
 
         }

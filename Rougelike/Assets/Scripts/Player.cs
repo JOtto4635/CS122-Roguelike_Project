@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    private GameObject player1 = default;
+
 
     public float maxHealth = 200;
     public float maxShield = 100;
@@ -114,6 +114,8 @@ public class Player : MonoBehaviour
             playerhealthbar.SetHealth(currentHealth);
             shieldDelay = maxShieldDelay;                   // Set shield regeneration delay
         }
+
+        CheckHealth(currentHealth);
     }
 
     private void setBulletPowerUp(GameObject prefab)
@@ -142,7 +144,6 @@ public class Player : MonoBehaviour
         {
             Destroy(coll.gameObject);
             TakeDamage(50);
-            CheckHealth(currentHealth);
         }
 
         if (coll.gameObject.name == "bulletPower1(Clone)")
@@ -185,6 +186,12 @@ public class Player : MonoBehaviour
             powerUpTime = 10f;
             setShipPowerUp(shipPowerUp3, powerUpController3, 10, 2);
             Destroy(coll.gameObject);
+        }
+
+        if (coll.gameObject.name == "Bullet 2(Clone)")
+        {
+            Destroy(coll.gameObject);
+            TakeDamage(20);
         }
 
     }

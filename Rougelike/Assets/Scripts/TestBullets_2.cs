@@ -10,9 +10,15 @@ public class TestBullets_2 : MonoBehaviour
     public float projectileForce;
     public float maxLifetime;
     public float fireRate = 1.0f;   // Default firerate 1 shot per second
-    private float shotCheck = 1;
+    private float shotCheckMax = 1;
+    private float shotCheck;
 
     private Vector2 direction;
+
+    void Start()
+    {
+        shotCheck = shotCheckMax;
+    }
 
     void Update()
     {
@@ -28,7 +34,7 @@ public class TestBullets_2 : MonoBehaviour
                 GameObject bullet = Instantiate(projectile, transform.position, Quaternion.identity);
                 Vector2 direction = Vector2.up;
                 bullet.GetComponent<Rigidbody2D>().velocity = direction * projectileForce;
-                FindObjectOfType<AudioManager>().Play("LaserCannon"); // This line works here but it also works just above this if statement, not sure which is better
+                // FindObjectOfType<AudioManager>().Play("LaserCannon"); // This line works here but it also works just above this if statement, not sure which is better
                 shotCheck = 1;
                 Destroy(bullet, maxLifetime);  // Destroy the bullets after a certain time on screen
             }                                                         

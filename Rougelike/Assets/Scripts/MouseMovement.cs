@@ -53,7 +53,7 @@ public class MouseMovement : MonoBehaviour
     private void Move()
     {
         transform.position = Vector2.SmoothDamp(transform.position, mousePosition, ref currentVelocity, smoothTime, maxMoveSpeed);
-        SetAnimatorMovement(mousePosition);
+       // SetAnimatorMovement(mousePosition);
     }
 
     private void TakeInput()
@@ -63,8 +63,8 @@ public class MouseMovement : MonoBehaviour
 
     private void SetAnimatorMovement(Vector2 mousePosition) // For controlling animations when moving
     {
-        animator.SetFloat("xDir", mousePosition.x);
-        animator.SetFloat("yDir", mousePosition.y);
-        print(animator.GetFloat("xDir"));
+       // animator.SetFloat("xDir", mousePosition.x);
+       // animator.SetFloat("yDir", mousePosition.y);
+        //print(animator.GetFloat("xDir"));
     }
 }
