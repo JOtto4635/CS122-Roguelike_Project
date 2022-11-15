@@ -3,7 +3,14 @@ guid: d77e480d79b8b4143b0dc34659d3062f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - asteroidHealthBar: {instanceID: 0}
+  - explosionPrefab: {instanceID: 0}
+  - bulletPower1: {fileID: 5288200768774758714, guid: d1d0a8505cae7714e88a05e9c4d73ee6, type: 3}
+  - bulletPower2: {fileID: 5288200768774758714, guid: cb82d96113c58a5488089a3c618eb51a, type: 3}
+  - shipPower1: {instanceID: 0}
+  - shipPower2: {instanceID: 0}
+  - shipPower3: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
